@@ -10,14 +10,21 @@
 <body>
 	<div class="container">
 		<h1>GitHub Instructions</h1>
-		<h2>How to upload a document to GitHub using the command line:</h2>
+		<h2>How to upload content from your computer into a GitHub repository using the command line:</h2>
 		<ol>
-			<li>Open a command line tool that you are using.</li>
-			<li>Add the document that you want to upload:<pre>git add "index.html"</pre></li>
-			<li>Commit a document with a message:<pre>git commit -m "add new HTML file"</pre></li>
+			<li>Create a new repository in your GitHub account at <a href="https://github.com/new">https://github.com/new</a></li>
+			<li>Open the command line tool of your choice</li>
+			<li>Create a new directory to store your git repository and access it: 
+				<pre>
+mkdir example 
+cd example</pre></li>
+			<li>Initialize a new git repository: <pre>git init</pre></li>
+			<li>Add the GitHub repository you created as a remote of your local repository: <pre>git remote add origin https://github.com/&lt;username&gt;/&lt;repository&gt;.git</pre></li>
+			<li>Add the document that you want to upload so you can commit it:<pre>git add "&lt;fileName&gt;"</pre></li>
+			<li>Commit a document with a message:<pre>git commit -m "Add a new file"</pre></li>
 			<li>Push the document to your repository:<pre>git push</pre></li>
 		</ol>
-		<p>Your document is uploaded to the repository.</p>
+		<p>Your content is now in your GitHub repository.</p>
 	</div>
 
 </body>
