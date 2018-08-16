@@ -1,0 +1,31 @@
+html{
+	font-size: 1em; 
+	font-family: 'Open Sans', sans-serif;
+	background-color: #fafafa;
+	line-height: 1.5;
+	margin-left: 1em;
+}
+h1 {
+  font-size: 3em;
+  /*text-align: center;*/
+}
+h2 {
+  font-size: 1.5em;
+}
+#container{
+	max-width: 20em;
+	margin:0 auto;
+	padding-right: 24px;
+	padding-left: 24px;
+	display: block;
+}
+pre{
+	word-wrap: normal;
+	overflow: auto;
+	padding: 12px;
+	background-color: #333;
+	border-radius: 3px;
+	color: white;
+	width:400px;
+	max-width: 600px;
+}
