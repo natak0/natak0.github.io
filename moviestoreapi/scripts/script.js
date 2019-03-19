@@ -1,6 +1,6 @@
 //get a poster image from imdb api
 function getPoster(searchTitle, image) {
-    fetch("http://www.omdbapi.com/?t=" + searchTitle + "&apikey=3f7b97cf")
+    fetch("https://www.omdbapi.com/?t=" + searchTitle + "&apikey=3f7b97cf")
                             .then(response => response.json())
                             .then(json =>{
                                 let str = json.Poster;
