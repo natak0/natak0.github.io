@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="UTF-8">
+   <title>Ghibli Movies Knowledge Base</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="styles/style.css" rel="stylesheet" type="text/css">
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins|Rubik|Rubik+Mono+One" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script type="text/javascript" src="scripts/script.js"></script> 
+</head>
+<body>
+    <div class="site-wrapper">
+         <!--Header-->
+        <header id="main-header" class="header-main">
+            <nav id="main-nav">
+                <a class="logo">GHIBLI</a>
+                <ul>
+                    <li><a href="index.html" id="home">Home</a></li>
+                    <!--to add a dropdown menu-->
+                    <li class="dropdown"><a href="javascript:void(0)" class="drop-btn" id="drop-button">Sort</a>
+                    <div class="dropdown-menu">
+                        <a href="#" id="drop-1">Random</a>
+                        <a href="#">Title</a>
+                        <a href="#">Director</a>
+                        <a href="#">Release Date</a>
+                    </div>
+                </ul>
+            </nav>
+            <div class="search-wrapper">
+                <form id="search-form">
+                     <input id="search-input" type="text" name="q">
+                     <input id="search-btn" type="submit" name="search" value="Search">
+                </form>
+               
+            </div>
+            <nav id="account-nav">
+                <a class="icon-btn menu-btn" href="#"><i class="fas fa-film icon-2x"> Favourites</i></a>
+                <!--a class="icon-btn menu-btn" href="#"><i class="fas fa-cart-plus icon-2x"> Checkout</i></a-->
+            </nav>
+        </header>
+        <!--Content here-->
+        <main id="main-content" class="content-main">
+            <aside class="sidebar">
+<!--                 <ul>
+                    <li>random book</li>
+                    <li>category</li>
+                    <li>author</li>
+                </ul> -->
+            </aside>
+
+            <div id="product-container">
+                <section id="product-container-grid">
+                <!-- <div class="product-grid">
+                    <img class="product-poster" src="images/ponyo.jpg">
+                    <p class="product-title">Ponyo</p>
+                    <p class="product-desc">About the movie</p>
+                    <div class="fav-stars">
+                        <a class="icon-btn add-star-btn" href="#"><i class="far fa-star icon-2x"></i></a>
+                        <a class="icon-btn star-btn" href="#"><i class="fas fa-star icon-2x"></i></a>
+                    </div>
+                </div> -->
+            </section>
+            </div>
+
+
+        </main>
+        <!--Footer-->
+        <footer id="nav-footer">
+            <div id="license" class="footer-info">
+                <p class="footer-info-text">Made by <a href="https://github.com/natak0">natak0</a> &copy;2019</p>
+            </div>
+        </footer>
+    </div>
+</body> 
+
