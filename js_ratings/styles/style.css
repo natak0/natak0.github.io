@@ -1,0 +1,24 @@
+.rating > .star:hover:before,
+.rating > .star:hover ~ .star:before,
+.rating > .hover:before
+{
+    content:"\2605";
+    color: #AAA;
+    color:cadetblue;
+    position: absolute;
+}
+.rating {
+    /*change direction of icons*/
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    width: fit-content;
+    width: -moz-fit-content;
+    
+}
+.rating > .star, .rating > .hover {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+color:darkgrey;
+
+}
