@@ -1,3 +1,8 @@
+.rating > .star:before{
+    content:"\2606";
+    position: absolute;
+    
+}
 .rating > .star:hover:before,
 .rating > .star:hover ~ .star:before,
 .rating > .hover:before
@@ -13,12 +18,14 @@
     direction: rtl;
     width: fit-content;
     width: -moz-fit-content;
+    display: inline-block;
     
 }
 .rating > .star, .rating > .hover {
   display: inline-block;
   position: relative;
   width: 1.1em;
-color:darkgrey;
+  height: 1.1em;
+  color:darkgrey;
 
 }
