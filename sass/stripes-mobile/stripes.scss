@@ -1,0 +1,82 @@
+@import 'specialeffects';
+
+$font-stack:    'Lato', sans-serif;
+$primary-color: #FFF;
+
+%stripe-shared {
+    top:0;
+    width:20%;
+    margin: 0 auto; 
+	cursor: pointer;
+	display: inline-grid;
+	overflow: hidden;
+}
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+	margin: 0 auto;
+}
+.stripe-container {
+	
+   width: 100%;
+	min-height: 100%;
+   	display: flex;
+   	flex-direction: row;
+	align-items: stretch;
+	position: fixed;
+	.stripe {
+	   @extend %stripe-shared;
+    }
+	@at-root {
+    .stripe:nth-child(1) { 
+		background-color: #244F75;
+		.greeting:before{
+			content:"CIAO";
+		}}
+    .stripe:nth-child(2) { background-color: #60BFBF; 
+		
+		.greeting:before{
+			content:"HOLA";
+		}}
+	.stripe:nth-child(3) { background-color: #8C4B7E; 
+		.greeting:before{
+			content:"HELLO";
+		}}
+    .stripe:nth-child(4) { background-color: #F8BB44;
+		.greeting:before{
+			content:"BONJOUR";
+		}}
+    .stripe:nth-child(5) { background-color: #F24B4B; 
+		.greeting:before{
+			content:"ПРИВЕТ";
+		}}
+	}
+	.greeting{
+	 text-align: center;
+     margin: 0;
+     position: relative;
+     top: 50%;
+	}		
+}
+@media (max-width: 768px) {
+	.stripe-container{
+		width: 100%;
+        flex-direction: column;
+		height: 100%;
+	}
+	.stripe{
+			height: 20%;
+            width: 100%!important;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
