@@ -59,7 +59,7 @@ body {
 	}		
 }
 @media (max-width: 768px) {
-	.stripe-container{
+/*	.stripe-container{
 		width: 100%;
         flex-direction: column;
 		height: 100%;
@@ -67,6 +67,10 @@ body {
 	.stripe{
 			height: 20%;
             width: 100%!important;
+	}*/
+	.greeting{
+		transform: rotateZ(90deg);
+		transform-origin: top;
 	}
 
 }
