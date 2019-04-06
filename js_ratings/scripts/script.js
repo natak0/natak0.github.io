@@ -1,12 +1,12 @@
+console.log(localStorage);
 document.addEventListener('DOMContentLoaded', (event) => createStars());
 
 //Remove star rating if clicked outside the rating
 window.addEventListener('click', function(e){   
   if (!document.querySelector('.rating').contains(e.target)){
       //console.log('You clicked outside');
-      var list = document.querySelectorAll("span");
-      var stars = Array.prototype.slice.call(list);
-      clearRating(stars);
+      
+      clearRating();
   }
 });
 
@@ -29,11 +29,19 @@ function starClick(e) {
                 rating = stars.length-starClicked;
                     console.log('rating is ', rating);
                 }
+            localStorage.setItem('rating', rating);
+                
+                
             }
 }
-function clearRating(stars) {
+function clearRating() {
+            var list = document.querySelectorAll("span");
+            var stars = Array.prototype.slice.call(list);
             for (var i = 0; i < stars.length; i++) {
                 stars[i].classList.remove('hover');
                 
             }
         }
+function saveRating(){
+    
+}

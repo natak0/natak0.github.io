@@ -1,1 +1,0 @@
-Animated web layout made with SASS.
