@@ -167,4 +167,17 @@ body {
   top: 50%;
 }
 
+@media (max-width: 768px) {
+  .stripe-container {
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .stripe {
+    height: 20%;
+    width: 100% !important;
+  }
+}
+
 /*# sourceMappingURL=stripes.css.map */
