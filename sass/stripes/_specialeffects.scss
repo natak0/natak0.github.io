@@ -54,7 +54,7 @@
 	.stripe:nth-child(#{$i}):before {
 		@extend %stripe-effect-shared;
 }
-	.stripe:nth-child(#{$i}):hover:before {
+	.stripe:nth-child(#{$i}):hover:before, .stripe:nth-child(#{$i}):active:before {
 		@extend %stripe-effect-shared-hover;
 	}
 }

@@ -75,7 +75,7 @@
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.stripe:nth-child(5):hover:before, .stripe:nth-child(4):hover:before, .stripe:nth-child(3):hover:before, .stripe:nth-child(2):hover:before, .stripe:nth-child(1):hover:before {
+.stripe:nth-child(5):hover:before, .stripe:nth-child(5):active:before, .stripe:nth-child(4):hover:before, .stripe:nth-child(4):active:before, .stripe:nth-child(3):hover:before, .stripe:nth-child(3):active:before, .stripe:nth-child(2):hover:before, .stripe:nth-child(2):active:before, .stripe:nth-child(1):hover:before, .stripe:nth-child(1):active:before {
   -webkit-transform: skew(0deg);
   -ms-transform: skew(0deg);
   transform: skew(0deg);
