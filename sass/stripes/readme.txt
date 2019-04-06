@@ -1,2 +1,2 @@
 Animated web layout made with SASS.
-https://natak0.github.io/sass/stripes/index.html
+https://natak0.github.io/sass/stripes
