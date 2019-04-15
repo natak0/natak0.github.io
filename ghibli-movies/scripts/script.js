@@ -27,7 +27,6 @@ function restoreRating(movieFav) {
 			for(var i=0;i<5;i++){	
 				var current= children[i];
 				var rating= 5-current.getAttribute('data-rating');
-				console.log("RATING", rating);
 				if (ratingValue>= rating){
 					 current.classList.add("hover");   
 				}
@@ -55,9 +54,7 @@ function starClick(e) {
 
 function createStars(movieFav){
 		movieParent = movieFav.parentNode.getAttribute('data-item');
-		console.log("createstars", movieParent);
 		ratingValue = localStorage.getItem("movie"+movieParent);
-		console.log(ratingValue)
 		for (i=0; i<5; i++){
 		
 			var newStar = document.createElement("span");
@@ -76,7 +73,6 @@ fetch("https://ghibliapi.herokuapp.com/films")
                 
                 for (var item in json){
                     var movie = json[item];
-					console.log("item",item);
                     
                     //create new div and elements
                     var container = document.createElement("div");
@@ -90,6 +86,8 @@ fetch("https://ghibliapi.herokuapp.com/films")
                     
                     var movieTitle = document.createElement("p");
                     movieTitle.className += "product-title";
+					var movieDirector = document.createElement("p");
+                    movieDirector.className += "product-director";
                     
                     var movieDesc = document.createElement("p");
                     movieDesc.className += "product-desc";
@@ -103,6 +101,7 @@ fetch("https://ghibliapi.herokuapp.com/films")
                     //add elements to container
                     container.appendChild(moviePoster);
                     container.appendChild(movieTitle);
+					container.appendChild(movieDirector);
                     container.appendChild(movieDesc);
                     container.appendChild(movieDate);
 					container.appendChild(movieFav);
@@ -110,7 +109,9 @@ fetch("https://ghibliapi.herokuapp.com/films")
                     document.getElementById('product-container-grid').appendChild(container);
                     //add data to elements
                     var newTitle = document.createTextNode(movie.title); 
-                    movieTitle.appendChild(newTitle)
+                    movieTitle.appendChild(newTitle);
+					var newDirector = document.createTextNode(movie.director);
+                    movieDirector.appendChild(newDirector);
                     var newDesc = document.createTextNode(movie.description);
                     movieDesc.appendChild(newDesc);
                     var newDate = document.createTextNode(movie.release_date);
@@ -146,9 +147,48 @@ function randomList(){
   }
     //add random divs to the grid
     for(var i = 0; i < arr.length; i++){
-		arr[i].style.display = "inline-grid"
+		//arr[i].style.display = "inline-grid"
         document.querySelector('#product-container-grid').appendChild(arr[i]);
    	}
+}
+//sorting functions
+function compareTitles(a,b){
+   var one= a.querySelector('.product-title').innerHTML;
+   var two= b.querySelector('.product-title').innerHTML;
+  // return one.localeCompare(two)*-1;
+	return one.localeCompare(two)
+}
+function compareDirector(a,b){
+   var one= a.querySelector('.product-director').innerHTML;
+   var two= b.querySelector('.product-director').innerHTML;
+  // return one.localeCompare(two)*-1;
+	return one.localeCompare(two)
+}
+function compareDates(a,b){
+   var one= a.querySelector('.product-date').innerHTML;
+   var two= b.querySelector('.product-date').innerHTML;
+  	return one.localeCompare(two)*-1;
+	//return one.localeCompare(two)
+}
+/*
+function getSortingFunction(argument){
+	return function(a,b){
+		var one= a.querySelector(argument).innerHTML;
+		var two= b.querySelector(argument).innerHTML;
+		return one.localeCompare(two);
+}
+}
+arr.sort(getSortingFunction('.product-director'))
+*/
+function sortStuff(arguments){
+	var list = document.querySelectorAll('.product-grid');
+    //get an array from DOM nodelist
+    var arr = Array.prototype.slice.call(list);
+    var result = arr.sort(arguments);
+	console.log(list, arr);
+	for (i=0;i<arr.length;i++){
+		document.querySelector('#product-container-grid').appendChild(arr[i]);
+		}	
 }
 //get a list of movies with rating
 function favList(){
@@ -158,17 +198,32 @@ function favList(){
 	for (i=0;i<arr.length;i++){
 		var item = arr[i].getAttribute('data-item');
 		var fav = localStorage.getItem("movie"+item);
-		if (fav == 5) {arr[i].style.display = "inline-grid"}
-			
-		else {arr[i].style.display = "none"}
+		if (fav == 5) {
+			arr[i].style.display = "inline-grid"
+		}	
+		else {
+			arr[i].style.display = "none"
+		}
 		}		
 	}
 
 document.addEventListener("DOMContentLoaded", function(event) {
 document.querySelector(".dropdown").addEventListener("click",function(e) {
 	// call the function to get a random list of movies
-  if (e.target && e.target.matches("a#drop-1")) {
+  	if (e.target && e.target.matches("a#drop-1")) {
       randomList();
+	}
+	// call the function to sort by title
+	if (e.target && e.target.matches("a#drop-2")) {
+      sortStuff(compareTitles);
+	}
+	// call the function to sort by director
+	if (e.target && e.target.matches("a#drop-3")) {
+      sortStuff(compareDirector);
+	}
+	// call the function to sort by date
+	if (e.target && e.target.matches("a#drop-4")) {
+      sortStuff(compareDates);
 	}
 });
 	
