@@ -170,7 +170,6 @@ function randomList(){
         document.querySelector('#product-container-grid').appendChild(arr[i]);
    	}
 }
-
 	
 //sorting functions
 function compareTitles(a,b){
@@ -210,8 +209,9 @@ function sortStuff(arguments){
 		}	
 }
 //get a list of movies with rating
-function favList(){
+function favList(nmb){
 	resetGrid();
+	if (nmb % 2 === 0){
 	var list = document.querySelectorAll('.product-grid');
     //get an array from DOM nodelist
     var arr = Array.prototype.slice.call(list);
@@ -224,7 +224,17 @@ function favList(){
 		else {
 			arr[i].style.display = "none"
 		}
-		}		
+		}
+	}
+	else {
+		var list = document.querySelectorAll('.product-grid');
+    	var arr = Array.prototype.slice.call(list);
+    
+    	for(var i = 0; i < arr.length; i++){
+			arr[i].style.display = "inline-grid";
+          document.querySelector('#product-container-grid').appendChild(arr[i]);
+   	}}
+
 	}
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -253,32 +263,15 @@ document.querySelector(".dropdown").addEventListener("click",function(e) {
        sortStuff(compareDates);
 	}
 });
-	
+let count=0;	
 document.querySelector('a.menu-btn').addEventListener("click",function(e) {
 	// call the function to get a list of favourite movies
-		
-      	favList();	
+		favList(count);
+	//toggle favourites on second click
+		count = count+1;
 });
 
 })
-document.addEventListener('DOMContentLoaded', (event) => {
-	//getContent();
-	//setTimeout(alert('wait'), 2000);
-    console.log('page is fully loaded');
-	console.log(document.querySelectorAll('a.product-link'))
-	var list = document.querySelectorAll('a.product-link')
-	var arr = Array.prototype.slice.call(list);
-	setTimeout(console.log("5sec",document.querySelectorAll('.product-grid'), arr),5000);
-	for (i=0;i<arr.length;i++){
-	arr[i].addEventListener("click",function() {
-		setTimeout(showDetails(arr[i]), 3000);
-	// call the function to get a list of favourite movies
-  
-      //showDetails(arr[i]);
-	
-});}
-});
-
 
 
 //Remove star rating if clicked outside the rating

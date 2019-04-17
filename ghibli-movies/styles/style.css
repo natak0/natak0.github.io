@@ -4,13 +4,12 @@ html{
 body{
 	font-family: 'Poppins', sans-serif;
 	margin: 0 auto;
-	min-height: 100vh;
-
-}
+	}
 
 .site-wrapper {
   	display: flex; 	
   	flex-direction: column;
+	height: 100vh;
 }
 header#main-header{
 	padding:15px;
@@ -114,10 +113,6 @@ header#main-header{
 #main-content{
 	display: flex;	
 	//min-height: calc(100vh - 50px);
-}
-#nav-footer{
-	display: flex;
-	margin-top:auto;
 }
 #main-content{
 	display: flex;
@@ -249,7 +244,8 @@ header#main-header{
 #nav-footer{
 	background-color: #f7f7f7;
 	align-items: baseline;
-	height:50px;
+	display: flex;
+	margin-top:auto;
 }
 #license{
 	margin: 0 auto;
