@@ -10,13 +10,6 @@ function getPoster(searchTitle, image) {
                         )
                         }
 
-/*function clearRating(list) {
-            var stars = Array.prototype.slice.call(list);
-            for (var i = 0; i < stars.length; i++) {
-                stars[i].classList.remove('hover');
-                
-            }
-        }*/
 
 function restoreRating(movieFav) {
             movieParent = movieFav.parentNode.getAttribute('data-item');
@@ -64,42 +57,69 @@ function createStars(movieFav){
 			newStar.addEventListener('click', starClick);
     }
 }
-                                         
+
+function showDetails(link){
+	link.addEventListener("click",function() {
+		document.querySelector('#product-container-grid').style.display = "none";
+		var details = document.querySelector('.details');
+		details.style.display = "inherit";
+		var wrapper = link.parentNode;
+		wrapper.className += " product-details";		
+		wrapper.querySelector('.product-desc').style.display = "inline";
+		details.appendChild(wrapper);
+		var btn = document.createElement('a');
+		btn.className += "nav-btn";
+		btn.setAttribute("href", "index.html");
+		wrapper.appendChild(btn);
+	})
+}
+function resetGrid(){
+	if (document.querySelector('#product-container-grid').style.display = "none"){
+		document.querySelector('#product-container-grid').style.display = "inherit";
+		document.querySelector('.details').style.display = "none";
+		var item = document.querySelector('.product-details');
+	if (item) {
+		item.querySelector('.product-desc').style.display = "none";
+		item.querySelector('.nav-btn').style.display = "none";
+		item.classList.remove('product-details');
+		document.querySelector('#product-container-grid').appendChild(item);
+		}
+	
+}
+}
                           
 //get title, description, year, etc. from ghibliapi
+function getContent(){
 fetch("https://ghibliapi.herokuapp.com/films")
+			.then(status)
             .then(response => response.json())
             .then(json =>{              
                 
                 for (var item in json){
                     var movie = json[item];
-                    
                     //create new div and elements
                     var container = document.createElement("div");
                     container.className += " product-grid";
 					//add unique attribute to each div
 					container.setAttribute("data-item",item);
                     document.getElementById('product-container-grid').appendChild(container);
-                    
+					var movieLink = document.createElement("a");
+					movieLink.className += "product-link";
                     var moviePoster = document.createElement("img");
                     moviePoster.className += "product-poster";
-                    
                     var movieTitle = document.createElement("p");
                     movieTitle.className += "product-title";
 					var movieDirector = document.createElement("p");
                     movieDirector.className += "product-director";
-                    
                     var movieDesc = document.createElement("p");
                     movieDesc.className += "product-desc";
-                    
                     var movieDate = document.createElement("p");
                     movieDate.className += "product-date";
-					
 					var movieFav = document.createElement("div");
                     movieFav.className += "rating";
-					//console.log(movieFav);
                     //add elements to container
-                    container.appendChild(moviePoster);
+					container.appendChild(movieLink);
+                    movieLink.appendChild(moviePoster);
                     container.appendChild(movieTitle);
 					container.appendChild(movieDirector);
                     container.appendChild(movieDesc);
@@ -116,21 +136,21 @@ fetch("https://ghibliapi.herokuapp.com/films")
                     movieDesc.appendChild(newDesc);
                     var newDate = document.createTextNode(movie.release_date);
                     movieDate.appendChild(newDate);
+					moviePoster.setAttribute("alt",newTitle.nodeValue+" poster");
+					movieLink.setAttribute("href", "#details");
+					movieLink.onclick = showDetails(movieLink); 
 					//add favourites rating
 					createStars(movieFav);
 					restoreRating(movieFav);
                     //add poster
                     getPoster(movie.title,moviePoster);
-
                 }          
-
         })
+}
        
-document.addEventListener("DOMContentLoaded", function(event) {
-   	document.getElementById("drop-1").addEventListener("click",function(e) {
-    })
-})
+
 function randomList(){
+	
     var list = document.querySelectorAll('.product-grid');
     //get an array from DOM nodelist
     var arr = Array.prototype.slice.call(list);
@@ -142,8 +162,7 @@ function randomList(){
     //interchange the values for new random values
     temporaryValue = arr[currentIndex];
     arr[currentIndex] = arr[randomIndex];
-    arr[randomIndex] = temporaryValue; 
-        
+    arr[randomIndex] = temporaryValue;        
   }
     //add random divs to the grid
     for(var i = 0; i < arr.length; i++){
@@ -151,11 +170,14 @@ function randomList(){
         document.querySelector('#product-container-grid').appendChild(arr[i]);
    	}
 }
+
+	
 //sorting functions
 function compareTitles(a,b){
+	
    var one= a.querySelector('.product-title').innerHTML;
    var two= b.querySelector('.product-title').innerHTML;
-  // return one.localeCompare(two)*-1;
+  // returns a number indicating whether a reference string comes before or after or is the same as the given string in sort order
 	return one.localeCompare(two)
 }
 function compareDirector(a,b){
@@ -168,7 +190,6 @@ function compareDates(a,b){
    var one= a.querySelector('.product-date').innerHTML;
    var two= b.querySelector('.product-date').innerHTML;
   	return one.localeCompare(two)*-1;
-	//return one.localeCompare(two)
 }
 /*
 function getSortingFunction(argument){
@@ -182,16 +203,15 @@ arr.sort(getSortingFunction('.product-director'))
 */
 function sortStuff(arguments){
 	var list = document.querySelectorAll('.product-grid');
-    //get an array from DOM nodelist
     var arr = Array.prototype.slice.call(list);
     var result = arr.sort(arguments);
-	console.log(list, arr);
 	for (i=0;i<arr.length;i++){
 		document.querySelector('#product-container-grid').appendChild(arr[i]);
 		}	
 }
 //get a list of movies with rating
 function favList(){
+	resetGrid();
 	var list = document.querySelectorAll('.product-grid');
     //get an array from DOM nodelist
     var arr = Array.prototype.slice.call(list);
@@ -208,30 +228,58 @@ function favList(){
 	}
 
 document.addEventListener("DOMContentLoaded", function(event) {
+	getContent();
+	
 document.querySelector(".dropdown").addEventListener("click",function(e) {
+	resetGrid();
 	// call the function to get a random list of movies
   	if (e.target && e.target.matches("a#drop-1")) {
-      randomList();
+		//resetGrid();
+       randomList();
 	}
 	// call the function to sort by title
 	if (e.target && e.target.matches("a#drop-2")) {
+	  //resetGrid();	
       sortStuff(compareTitles);
 	}
 	// call the function to sort by director
 	if (e.target && e.target.matches("a#drop-3")) {
-      sortStuff(compareDirector);
+		//resetGrid();
+       sortStuff(compareDirector);
 	}
 	// call the function to sort by date
 	if (e.target && e.target.matches("a#drop-4")) {
-      sortStuff(compareDates);
+		//resetGrid();
+       sortStuff(compareDates);
 	}
 });
 	
 document.querySelector('a.menu-btn').addEventListener("click",function(e) {
 	// call the function to get a list of favourite movies
-      favList();	
+		
+      	favList();	
 });
+
 })
+document.addEventListener('DOMContentLoaded', (event) => {
+	//getContent();
+	//setTimeout(alert('wait'), 2000);
+    console.log('page is fully loaded');
+	console.log(document.querySelectorAll('a.product-link'))
+	var list = document.querySelectorAll('a.product-link')
+	var arr = Array.prototype.slice.call(list);
+	setTimeout(console.log("5sec",document.querySelectorAll('.product-grid'), arr),5000);
+	for (i=0;i<arr.length;i++){
+	arr[i].addEventListener("click",function() {
+		setTimeout(showDetails(arr[i]), 3000);
+	// call the function to get a list of favourite movies
+  
+      //showDetails(arr[i]);
+	
+});}
+});
+
+
 
 //Remove star rating if clicked outside the rating
 /*window.addEventListener('click', function(e){   
@@ -240,6 +288,14 @@ document.querySelector('a.menu-btn').addEventListener("click",function(e) {
       clearRating();
   }
 });*/
+
+/*function clearRating(list) {
+            var stars = Array.prototype.slice.call(list);
+            for (var i = 0; i < stars.length; i++) {
+                stars[i].classList.remove('hover');
+                
+            }
+        }*/
 
 
 
