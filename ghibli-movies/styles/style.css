@@ -9,7 +9,7 @@ body{
 .site-wrapper {
   	display: flex; 	
   	flex-direction: column;
-	height: 100vh;
+/*	height: 100vh;*/
 }
 header#main-header{
 	padding:15px;
@@ -266,6 +266,7 @@ p.footer-info-text{
         display: block;
 		width: auto;
 	}
+
 }
 
 /*css for rating*/
