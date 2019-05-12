@@ -161,21 +161,21 @@ ul li::before {
   background: url("img/GitHub-Mark-Light-64px.png");
   background-size: cover;
   position: absolute;
-  width: 20px;
-  height: 20px;
-  margin-left: -20px;
+  width: 16px;
+  height: 16px;
+  margin-left: -16px;
+  margin-top: 3px;
 }
 
 .icon {
   display: block;
-  height: 20px;
   color: #FFF;
   text-decoration: none;
-  padding-left: 20px;
+  padding-left: 16px;
 }
 
 .fas, .far {
-  margin-left: -20px;
+  margin-left: -16px;
 }
 
 .icon span {
@@ -187,6 +187,10 @@ ul li::before {
     width: 95%;
     flex-direction: column;
     position: relative;
+  }
+
+  .stripe {
+    padding-bottom: 1em;
   }
 }
 
