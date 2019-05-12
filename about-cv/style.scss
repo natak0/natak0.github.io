@@ -1,0 +1,117 @@
+@import 'specialeffects';
+
+$font-stack:    'Poppins', sans-serif;
+$primary-color: #FFF;
+
+%stripe-shared {
+    top:0;
+    //height:max-content;
+	width:100%;
+    margin: 0 auto; 
+	cursor: pointer;
+	display: inline-block;
+	overflow: hidden;
+	padding: 1em;
+}
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+	margin: 0 auto;
+}
+.stripe-container {
+	
+   	width: 100%;
+	height:100%;
+	min-height: 100%;
+   	display: flex;
+	justify-content: center;
+   	flex-direction: row;
+	align-items: stretch;
+	position: fixed;
+	.stripe {
+	   @extend %stripe-shared;
+    }
+	@at-root {
+    .stripe:nth-child(1) { 
+		background-color: #244F75;
+		flex:1;
+		}
+    .stripe:nth-child(2) { background-color: #8C4B7E; 
+		flex:1;
+		
+		.greeting:before{
+			content:"Skills";
+		}}
+	.stripe:nth-child(3) { background-color: #009688; 
+		flex:1;
+		.greeting:before{
+			content:"Education";
+		}}
+	}
+}
+
+.typewriter{
+	width: max-content;
+}
+.typewriter h1 {
+  overflow: hidden; 
+  border-right: .15em solid #F8BB44;
+  animation:
+    typing 3.5s steps(40, end),
+    blink-end .9s step-end infinite;
+}
+h1{
+	letter-spacing: .1em; 
+	white-space: nowrap;
+}
+ul {
+ //list-style: none;
+}
+ul li::before {
+	margin-left: 1em;
+}
+//links styles
+.block-about{
+	margin: 0 auto;	
+}
+.tag:before{
+    content: '';
+    background:url('img/GitHub-Mark-Light-64px.png');
+    background-size:cover;
+    position:absolute;
+    width:20px;
+    height:20px;
+	margin-left:-20px;
+}
+
+.icon{
+    display:block;
+    height:20px;
+    color:$primary-color;
+    text-decoration:none;
+    padding-left:20px;
+}
+.fas, .far {
+	margin-left:-20px;
+}
+.icon span{
+	padding-left: 10px;
+}
+@media (max-width: 900px) {
+.stripe-container{
+		width: 95%;
+        flex-direction: column;
+		position: relative;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

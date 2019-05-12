@@ -1,0 +1,193 @@
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink-end {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #F8BB44;
+  }
+}
+@media (min-width: 901px) {
+  @keyframes stripe1 {
+    0% {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      -ms-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+      -webkit-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  @keyframes stripe2 {
+    0% {
+      -webkit-transform: translate3d(0, 100%, 0);
+      -ms-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+    100% {
+      -webkit-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  @keyframes stripe3 {
+    0% {
+      -webkit-transform: translate3d(0, -100%, 0);
+      -ms-transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, -100%, 0);
+    }
+    100% {
+      -webkit-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .stripe:nth-child(3):before, .stripe:nth-child(2):before, .stripe:nth-child(1):before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0.05;
+    transform-origin: center center;
+    -webkit-transform: skew(30deg);
+    -ms-transform: skew(30deg);
+    transform: skew(30deg);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .stripe:nth-child(3):hover:before, .stripe:nth-child(3):active:before, .stripe:nth-child(2):hover:before, .stripe:nth-child(2):active:before, .stripe:nth-child(1):hover:before, .stripe:nth-child(1):active:before {
+    -webkit-transform: skew(0deg);
+    -ms-transform: skew(0deg);
+    transform: skew(0deg);
+    opacity: 0.1;
+  }
+
+  .stripe:nth-child(1) {
+    animation: stripe1 1.5s forwards ease-in;
+  }
+
+  .stripe:nth-child(2) {
+    animation: stripe2 1.5s forwards ease-in;
+  }
+
+  .stripe:nth-child(3) {
+    animation: stripe3 1.5s forwards ease-in;
+  }
+}
+.stripe-container .stripe {
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 1em;
+}
+
+body {
+  font: 100% "Poppins", sans-serif;
+  color: #FFF;
+  margin: 0 auto;
+}
+
+.stripe-container {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: stretch;
+  position: fixed;
+}
+.stripe:nth-child(1) {
+  background-color: #244F75;
+  flex: 1;
+}
+
+.stripe:nth-child(2) {
+  background-color: #8C4B7E;
+  flex: 1;
+}
+.stripe:nth-child(2) .greeting:before {
+  content: "Skills";
+}
+
+.stripe:nth-child(3) {
+  background-color: #009688;
+  flex: 1;
+}
+.stripe:nth-child(3) .greeting:before {
+  content: "Education";
+}
+
+.typewriter {
+  width: max-content;
+}
+
+.typewriter h1 {
+  overflow: hidden;
+  border-right: 0.15em solid #F8BB44;
+  animation: typing 3.5s steps(40, end), blink-end 0.9s step-end infinite;
+}
+
+h1 {
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+ul li::before {
+  margin-left: 1em;
+}
+
+.block-about {
+  margin: 0 auto;
+}
+
+.tag:before {
+  content: "";
+  background: url("img/GitHub-Mark-Light-64px.png");
+  background-size: cover;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-left: -20px;
+}
+
+.icon {
+  display: block;
+  height: 20px;
+  color: #FFF;
+  text-decoration: none;
+  padding-left: 20px;
+}
+
+.fas, .far {
+  margin-left: -20px;
+}
+
+.icon span {
+  padding-left: 10px;
+}
+
+@media (max-width: 900px) {
+  .stripe-container {
+    width: 95%;
+    flex-direction: column;
+    position: relative;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
