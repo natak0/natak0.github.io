@@ -8,7 +8,7 @@ $primary-color: #FFF;
     //height:max-content;
 	width:100%;
     margin: 0 auto; 
-	cursor: pointer;
+	/*cursor: pointer;*/
 	display: inline-block;
 	overflow: hidden;
 	padding: 1em;
@@ -35,10 +35,10 @@ body {
     .stripe:nth-child(1) { 
 		background-color: #244F75;
 		flex:1;
+		padding-top: 0;
 		}
     .stripe:nth-child(2) { background-color: #8C4B7E; 
 		flex:1;
-		
 		.greeting:before{
 			content:"Skills";
 		}}
