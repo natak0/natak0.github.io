@@ -9,7 +9,8 @@ body{
 .site-wrapper {
   	display: flex; 	
   	flex-direction: column;
-/*	height: 100vh;*/
+	position: relative;
+	min-height: 100vh;
 }
 header#main-header{
 	padding:15px;
@@ -18,6 +19,7 @@ header#main-header{
 	justify-content: space-between;
 	background-color: #f7f7f7;
 	color:steelblue;
+	height: 5.5rem;
 }
 #main-nav{
 	
@@ -117,6 +119,7 @@ header#main-header{
 #main-content{
 	display: flex;
 	flex-direction: row;
+	padding-bottom: 3rem;
 }
 .sidebar{
 	display: block;
@@ -161,14 +164,6 @@ header#main-header{
 }
 .product-details > .product-desc{
 	grid-row: 2;
-	
-}
-.product-details > .product-title{
-	
-	
-}
-.product-details > .product-director{
-	
 	
 }
 .product-details > .product-rating{
@@ -233,7 +228,7 @@ header#main-header{
 	
 }
 .nav-btn:hover{
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	background: #FFF
 }
 	
 .nav-btn::before{
@@ -245,7 +240,12 @@ header#main-header{
 	background-color: #f7f7f7;
 	align-items: baseline;
 	display: flex;
-	margin-top:auto;
+	bottom: 0;
+	width: 100%;
+	height:2.5rem;
+	margin-bottom: auto;
+    justify-content: center;
+    position: absolute;
 }
 #license{
 	margin: 0 auto;
@@ -258,6 +258,7 @@ p.footer-info-text{
 @media only screen and (max-width: 700px) {
 	header#main-header{
 		flex-direction: column;
+		height: auto;
 	}
 	.sidebar{
 		display: none;

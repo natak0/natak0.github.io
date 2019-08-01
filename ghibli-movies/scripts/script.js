@@ -107,6 +107,7 @@ fetch("https://ghibliapi.herokuapp.com/films")
 					movieLink.className += "product-link";
                     var moviePoster = document.createElement("img");
                     moviePoster.className += "product-poster";
+                    moviePoster.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
                     var movieTitle = document.createElement("p");
                     movieTitle.className += "product-title";
 					var movieDirector = document.createElement("p");
