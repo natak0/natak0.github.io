@@ -51,10 +51,19 @@ fetch("https://ghibliapi.herokuapp.com/films")
                     var newDate = document.createTextNode(movie.release_date);
                     movieDate.appendChild(newDate);
 					moviePoster.setAttribute("alt",newTitle.nodeValue+" poster");
-					movieLink.setAttribute("href", "#details");
+					//get a value to add to a new URL for details page
+					hrefStr = newTitle.nodeValue;
+					//search regEX for spaces or ' special characterin the movie title and replace it with "-"
+					hrefStr = hrefStr.replace(/\s+|[`'`]/g, '-');
+					//change the string to lowercase
+					hrefStr = hrefStr.toLowerCase();
+					//create URL
+					movieLink.setAttribute("href", "#" + hrefStr);
+					//open details for a movie on click event
 					movieLink.onclick = showDetails(movieLink); 
 					//add favourites rating
 					createStars(movieFav);
+					//get the previously clicked rating from the local storage
 					restoreRating(movieFav);
                     //add poster image from imdb api
                     getPoster(movie.title,moviePoster);
