@@ -1,0 +1,12 @@
+
+{
+    "aloha" : "Hey visitor",
+    "name": "Natasha",
+    "address":{
+    	"City": "Barcelona",
+    	"Country": "Spain"},
+    "occupation": "frontend",
+    "status": "looking for a job", 
+    "url": "https://natak0.github.io/about-cv/",
+    "email": "n.koroliova@gmail.com"
+  }

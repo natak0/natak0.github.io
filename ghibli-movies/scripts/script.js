@@ -241,6 +241,7 @@ function favList(nmb){
 //add event listeners to the menu after the DOM content is loaded
 document.addEventListener("DOMContentLoaded", function(event) {
 	getContent();
+	getWelcomeJSON();
 	
 document.querySelector(".dropdown").addEventListener("click",function(e) {
 	//clear the grid content
@@ -270,7 +271,17 @@ document.querySelector('a.menu-btn').addEventListener("click",function(e) {
 		count = count+1;
 });
 
-})
+});
+//load the local JSON file in console
+function getWelcomeJSON(){
+fetch('assets/about.json')
+  .then((res) => res.json())
+  .then((data) => {
+    //console.log('data:', data);
+    console.log(JSON.stringify(data, null, '\t'));
+  })
+ }
+
 
 //Remove star rating if clicked outside the rating
 /*window.addEventListener('click', function(e){   
