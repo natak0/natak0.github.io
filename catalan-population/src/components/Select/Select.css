@@ -1,0 +1,29 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+.select label {
+  padding-bottom: 3px;
+}
+.select--large select {
+  font-size: 1.5em;
+  font-weight: 600;
+  width: 295px;
+  padding: 8px 0;
+  border: none;
+  border-bottom: 1px solid #8f8f8f;
+}
+.select--small select {
+  font-size: 1em;
+  font-weight: 400;
+  width: fit-content;
+  min-width: 104px;
+  height: 37px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #8f8f8f;
+}
+.label-mobile {
+  display: none;
+}

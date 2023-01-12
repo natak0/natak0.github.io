@@ -1,0 +1,42 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  margin: 32px;
+  height: 100vh;
+}
+.panel--row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.panel--left {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+}
+.panel--left div:last-child {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@media (width <= 30em) {
+  .panel {
+    flex-direction: column;
+  }
+  .panel--left {
+    width: 100%;
+  }
+  .panel--row {
+    flex-direction: column;
+  }
+    .panel h1,
+  .panel p {
+    display: block;
+  }
+}
+@media (width >30em) {
+  .panel h1,
+  .panel p {
+    display: none;
+  }
+}

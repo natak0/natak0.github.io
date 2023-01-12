@@ -1,0 +1,39 @@
+.table-container {
+  max-height: 400px;
+  overflow: auto;
+  margin-bottom: 3em;
+  margin-top: auto;
+}
+.table {
+  text-align: left;
+  border-spacing: 0px;
+  height: 100%;
+  overflow-y: auto;
+}
+.table__head {
+  height: 43px;
+  color: #828282;
+}
+.table__head th {
+  border-bottom: 1px solid #000000;
+  border-top: 1px solid #c4c4c4;
+  padding-right: 10px;
+  font-weight: 400;
+}
+.table__summary {
+  height: 43px;
+}
+.table__summary th:last-child {
+  font-weight: 400;
+  color: #828282;
+}
+.table td {
+  height: 36px;
+}
+@media (width <= 30em) {
+  .table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+  }
+}

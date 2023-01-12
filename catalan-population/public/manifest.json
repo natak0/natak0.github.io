@@ -1,0 +1,8 @@
+{
+  "short_name": "Població dels municipis de Catalunya segregada per rang d'edat i sexe.",
+  "name": "Població dels municipis de Catalunya segregada per rang d'edat i sexe.",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

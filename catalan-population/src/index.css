@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+  font-size: 0.8125rem;
+  height: 100vh;
+}
+h1 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0;
+}
+p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
