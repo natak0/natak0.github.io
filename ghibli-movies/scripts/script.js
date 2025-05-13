@@ -1,7 +1,7 @@
 
 //get title, description, year, director from ghibli api
 function getContent(){
-fetch("https://ghibliapi.herokuapp.com/films")
+fetch("https://ghibliapi.vercel.app/films")
 			.then(status)
             .then(response => response.json())
             .then(json =>{              
